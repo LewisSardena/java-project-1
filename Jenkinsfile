@@ -108,7 +108,7 @@ pipeline {
   post {
     failure {
       emailext(
-        subject: "$(env.JOB_NAME) [${env.BUILD_NUMBER}] Failed!",
+        subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!",
         body: "<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Failed!</p>",
         to: "ross.lafferty@gmail.com"
       )
