@@ -93,6 +93,25 @@ pipeline {
         sh "git tag rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
         sh "git push origin rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
       }
+      post {
+        success {
+          emailext(
+            subject: "$(env.JOB_NAME) [${env.BUILD_NUMBER}] promoted!",
+            body: "<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' development promoted to master!</p>",
+            to: "ross.lafferty@gmail.com"
+          )
+        }
+      }
+    }
+  }
+
+  post {
+    failure {
+      emailext(
+        subject: "$(env.JOB_NAME) [${env.BUILD_NUMBER}] Failed!",
+        body: "<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Failed!</p>",
+        to: "ross.lafferty@gmail.com"
+      )
     }
   }
 }
