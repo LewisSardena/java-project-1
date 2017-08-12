@@ -96,7 +96,7 @@ pipeline {
       post {
         success {
           emailext(
-            subject: "$(env.JOB_NAME) [${env.BUILD_NUMBER}] promoted!",
+            subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] promoted!",
             body: "<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' development promoted to master!</p>",
             to: "ross.lafferty@gmail.com"
           )
