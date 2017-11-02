@@ -31,6 +31,7 @@ pipeline {
 				}
 			}
 		}
+		}
 		stage('Unit Tests') {
 			agent {
 				label 'apache'
