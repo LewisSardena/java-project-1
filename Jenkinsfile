@@ -52,7 +52,7 @@ pipeline {
 		}
 		stage("Test on Debian") {
 			agent {
-				docker 'openjdk:8u121-jre'
+				docker 'openjdk:latest'
 			}
 			steps {
 				sh "wget http://lewissardena1.mylabserver.com/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
