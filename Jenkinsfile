@@ -30,8 +30,8 @@ pipeline {
 				echo "My Commit: ${myLib.gitCommit("${env.WORKSPACE}/.git")}"
 				}
 			}
-		}
-		}
+		  }
+	  }
 		stage('Unit Tests') {
 			agent {
 				label 'apache'
